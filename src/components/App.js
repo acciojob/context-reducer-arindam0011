@@ -1,6 +1,6 @@
 // App.js
 import React, { useState, useContext } from 'react';
-import { AppContext, AppProvider } from './context/AppContext';
+import { AppContext, AppProvider } from './AppContext';
 
 const App = () => {
     const { isAuthenticated, currentUser, login, logout, items, addItem, removeItem, clearItems } = useContext(AppContext);
