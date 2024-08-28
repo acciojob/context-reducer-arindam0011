@@ -1,10 +1,35 @@
 // App.js
 import React, { useState, useContext } from 'react';
-import { AppContext, AppProvider } from './AppContext';
+
 
 const App = () => {
-    const { isAuthenticated, currentUser, login, logout, items, addItem, removeItem, clearItems } = useContext(AppContext);
     const [inputValue, setInputValue] = useState('');
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [currentUser, setCurrentUser] = useState('');
+    const [items, setItems] = useState([]);
+
+    const login = () => {
+        setCurrentUser('rohan');
+        setIsAuthenticated(true);
+    };
+
+    const logout = () => {
+        setCurrentUser('');
+        setIsAuthenticated(false);
+    };
+
+    const addItem = (item) => {
+        setItems([...items, item]);
+    };
+
+    const removeItem = (item) => {
+        setItems(items.filter(i => i !== item));
+    };
+
+    const clearItems = () => {
+        setItems([]);
+    };
+
 
     const handleAdd = () => {
         if (inputValue.trim()) {
@@ -13,7 +38,7 @@ const App = () => {
         }
     };
 
-    
+
     return (
         <div>
             <div>
@@ -43,8 +68,4 @@ const App = () => {
     );
 };
 
-export default () => (
-    <AppProvider>
-        <App />
-    </AppProvider>
-);
+export default App;
