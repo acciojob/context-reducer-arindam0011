@@ -1,3 +1,4 @@
+//cypress test cases not running
 // App.js
 import React, { useState, useContext } from 'react';
 
@@ -7,6 +8,7 @@ const App = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [currentUser, setCurrentUser] = useState('');
     const [items, setItems] = useState([]);
+
 
     const login = () => {
         setCurrentUser('rohan');
